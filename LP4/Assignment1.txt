@@ -1,0 +1,49 @@
+ASSIGNMENT 1 - CSDF
+CODE:
+
+
+import re
+def analyze_email_headers(email_text):
+ headers = {}
+ # Split the email text into lines
+ lines = email_text.split('\n')
+
+ # Use regular expressions to extract key-value pairs from headers
+ for line in lines:
+   match = re.match(r"([^:]+):\s*(.*)", line)
+   if match:
+    key = match.group(1)
+    value = match.group(2)
+    headers[key] = value
+
+ # Print the extracted headers
+ for key, value in headers.items():
+    print(f"{key}: {value}")
+def main():
+ print("Enter email headers (press Enter twice to finish):")
+ email_lines = []
+ while True:
+    line = input()
+    if line == "":
+        break
+    email_lines.append(line)
+ email_text = "\n".join(email_lines)
+
+ analyze_email_headers(email_text)
+if __name__ == "__main__":
+ main()
+
+
+OUTPUT:
+
+PS C:\Users\Vedang Chavan> python -u "c:\Users\Vedang Chavan\Desktop\csdf.py"
+Enter email headers (press Enter twice to finish):
+From: vedangchavan07@gmail.com
+To: support.udemy@gmail.com
+Subject: password reset
+Received: by mail.example.com(Postfix, from userid 1000)
+
+From: vedangchavan07@gmail.com
+To: support.udemy@gmail.com
+Subject: password reset
+Received: by mail.example.com(Postfix, from userid 1000)

@@ -1,0 +1,32 @@
+CSDF ASSIGNMENT 2
+CODE:
+
+import random
+import string
+# Define the characters that can be used in the CAPTCHA
+chrs = string.ascii_letters + string.digits
+# Function to generate a random CAPTCHA of given length
+def generate_captcha(length):
+    captcha = ''.join(random.choice(chrs) for _ in range(length))
+    print(captcha)
+    ip_choice=input("enter captcha:")
+    if(captcha == ip_choice):
+        print("Valid Captcha! ")
+    else:
+        print("Invalid Captcha! ")
+def main():
+    captcha_length = 6 # Length of the CAPTCHA
+    captcha = generate_captcha(captcha_length)
+if __name__ == "__main__":
+main()
+
+
+OUTPUT:
+Wnt7Rn
+enter captcha:WntRn
+Invalid Captcha!
+
+
+t1pkSe
+enter captcha:t1pkSe
+Valid Captcha!
